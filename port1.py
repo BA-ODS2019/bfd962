@@ -4,7 +4,9 @@ Created on Mon Sep 16 13:02:41 2019
 
 @author: Christian
 """
+#============================================
 # Opgave 1 - Se på indholdet af datafilen
+#============================================
 """
 A: Datafilen indeholder følgende datatyper:
     - Integers: prisklassen, søskende/hustruer ombord, børn/forældre ombord og alderen
@@ -19,7 +21,9 @@ B: Datasættet indeholder ikke data om alle passagerer fra Titatnic,
    således at de ikke skulle betale for en billet.
 """
 
+#============================================
 # Opgave 2 - Import af data til dataframe
+#============================================
 
 #Importerer pandas og gemmer datafilen i en dataframe
 import pandas as pd
@@ -48,7 +52,9 @@ print("Kolonnernes navne:\n",df_titan.columns, "\n")
 # Kolonnernes datatyper
 print("Kolonnernes datatyper:\n",df_titan.dtypes, "\n")
 
+#============================================
 # Opgave 3: Deskriptiv statistik af datasættet
+#============================================
 
 # Antal der overlevede
 print("Antal der overlevede:","\n",df_titan['Survived'].sum(),"\n")
@@ -67,8 +73,9 @@ df_titan['Age'].describe()
 df_titan['Fare'].describe()
 df_titan['Pclass'].describe()
 
-
+#============================================
 # Opgave 4: Personer med samme efternavn
+#============================================
 
 namelist = df_titan['Name'] # Gemmer datafilens navne i en liste
 lastnames = [] # Tom liste til at indeholde efternavne
@@ -79,6 +86,7 @@ for lastname in namelist:
     
 # Jeg gemmer listen med navne i en dataframe, for at kunne bruge en pandas funktion
 df_lastnames = pd.DataFrame(lastnames)
+
 # Antal forekomster af hvert enkelt efternavn
 print("De 10 mest hyppige efternavne:\n",df_lastnames[0].value_counts().head(10),"\n") 
 
@@ -88,7 +96,9 @@ from collections import Counter
 # Printer de 10 mest brugte efternavne
 print("De 10 mest hyppige efternavne (med Counter-funktionen):\n",Counter(lastnames).most_common(10),"\n")
 
+#============================================
 # Opgave 5: Rejsende pr. prisklasse
+#============================================
 
 # Antal personer i hver prisklasse
 antal = df_titan['Pclass'].value_counts()
